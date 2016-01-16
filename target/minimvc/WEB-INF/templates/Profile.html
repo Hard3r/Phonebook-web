@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+        <title>Spring Thyme Seed Starter Manager</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" media="all" href="../../css/main.css" th:href="@{/css/main.css}"/>
+        <link rel="stylesheet" type="text/css" media="all" href="../../css/list.css" th:href="@{/css/list.css}"/>
+        <link rel="stylesheet" type="text/css" media="all" href="../../css/form.css" th:href="@{/css/form.css}"/>
+
+</head>
+<body>
+<header>
+    <div align="center">
+    <h1>Hello: <th:block th:text="${user.name}"></th:block></h1>
+    </div>
+</header>
+
+
+<div align="center">
+    <table id="display-userlist" th:border="2">
+        <thead>
+        <tr>
+            <th>Count</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--/*@thymesVar id="userList" type="java"*/-->
+        <tr th:each="items: ${phonesList}">
+            <td th:text="${items.phoneid}"></td>
+            <td th:text="${items.name}"></td>
+            <td th:text="${items.phone}"></td>
+            <td><a th:href="@{/deletephone(id=${items.phoneid})}">Delete</a></td>
+            <td><a th:href="@{/editphone(id=${items.phoneid})}">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <footer>
+
+
+        <div align="center">
+
+            <form action="#" th:object="${phones}" th:action="@{/savephone}" method="post">
+
+
+                <fieldset id="user-details">
+
+                    <label for="name">Name: <span class="required">*</span></label>
+                    <input type="text" name="name" value="" id="name" placeholder="Contact Name" required="required" autofocus="autofocus" th:value="*{name}"/>
+
+                    <label for="phone">Phone: <span class="required">*</span></label>
+                    <input type="text" name="phone" value="" id="phone" placeholder="phone" required="required" th:value="*{phone}"/>
+
+                    <input type="submit" value="Submit phone" name="submit" class="submit" />
+                    <p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
+
+                </fieldset><!--end user-details-->
+
+            </form>
+        </div>
+
+
+
+
+
+    </footer>
+
+</div>
+</body>
+</html>

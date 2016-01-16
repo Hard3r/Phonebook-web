@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="minimvc:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="minimvc.war">
+      <element id="artifact" artifact-name="minimvc:war exploded" />
+    </root>
+  </artifact>
+</component>

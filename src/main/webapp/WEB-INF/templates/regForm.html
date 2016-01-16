@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+        <title>Spring Thyme Seed Starter Manager</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" media="all" href="../../css/main.css" th:href="@{/css/main.css}"/>
+        <link rel="stylesheet" type="text/css" media="all" href="../../css/list.css" th:href="@{/css/list.css}"/>
+        <link rel="stylesheet" type="text/css" media="all" href="../../css/form.css" th:href="@{/css/form.css}"/>
+
+</head>
+<body>
+<div align="center">
+
+    <form action="#" th:object="${user}" th:action="@{/save}" method="post">
+
+
+            <fieldset id="user-details">
+
+                <label for="name">Name: <span class="required">*</span></label>
+                <input type="text" name="name" value="" id="name" placeholder="Your Name" required="required" autofocus="autofocus" th:value="*{name}"/>
+
+                <label for="password">Password: <span class="required">*</span></label>
+                <input type="password" name="password" value="" id="password" placeholder="passworde" required="required" th:value="*{password}"/>
+
+                <input type="submit" value="Submit user" name="submit" class="submit" />
+                <p id="req-field-desc"><span class="required">*</span> indicates a required field</p>
+
+            </fieldset><!--end user-details-->
+
+        </form>
+</div>
+
+
+
+</body>
+</html>
